@@ -1,13 +1,40 @@
-import { URL_DISTRIBUTION } from '@env';
-import axios from 'axios';
 import { CacheType } from '../actions/loaderActions';
 
 export const DistributionService = {
-  async get() {
-    const response = await axios
-      .get<DistributionResponseType>(URL_DISTRIBUTION)
-      .then(res => res.data);
-    return response;
+  async get(): Promise<DistributionResponseType> {
+    return {
+      cdnLauncher: '',
+      cdnCache: '',
+      cacheMode: [],
+      cache: [],
+      rss: '',
+      versionHash: '1',
+      packageName: 'com.touch.mobile.dark',
+      projectName: 'Touch Mobile Dark',
+      servers: [
+        {
+          id: 1,
+          show: true,
+          version: '0.3.7',
+          icon: '',
+          events: [],
+          slot: 1000,
+          bonus: false,
+          name: 'UKRAINE-SAMP',
+          description: 'UK SAMP SUPER',
+          address: '188.165.192.24:6922',
+          sampVersion: '0.3.7',
+        },
+      ],
+      launcher: {
+        appVersion: '0.0.16',
+        name: 'launcher.apk',
+        hash: '',
+        bytes: 0,
+        size: '0 MB',
+      },
+      filesContinue: [],
+    };
   },
 };
 
