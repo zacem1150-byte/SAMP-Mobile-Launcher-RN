@@ -1,12 +1,24 @@
 import { CacheType } from '../actions/loaderActions';
 
+const RELEASE_URL = 'https://github.com/zacem1150-byte/launcher/releases/download/v1';
+
 export const DistributionService = {
   async get(): Promise<DistributionResponseType> {
     return {
-      cdnLauncher: '',
-      cdnCache: '',
+      cdnLauncher: RELEASE_URL,
+      cdnCache: RELEASE_URL,
       cacheMode: [],
-      cache: [],
+      cache: [
+        {
+          name: 'uksamp.zip',
+          url: `${RELEASE_URL}/uksamp.zip`,
+          // SHA-256. Якщо лаунчер чекає MD5, встав: 615426fdaecf95c16dd4e0c54086db6d
+          hash: 'b4baa4ca701e22d14d043e3c11dac29df712c7f6f14f04df00fb06fca24d41f4',
+          bytes: 413872146,
+          size: '395 MB',
+          unzip: true,
+        } as unknown as CacheType,
+      ],
       rss: '',
       versionHash: '1',
       packageName: 'com.touch.mobile.dark',
